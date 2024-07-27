@@ -1,4 +1,5 @@
 #¡Juega a "Piedra, Papel, Tijera, Lagarto, Spock"!
+
 ¿Cansado de los mismos viejos juegos? ¡Es hora de elevar tu diversión con una emocionante y geek versión del clásico juego de "Piedra, Papel, Tijera"! Presentamos "Piedra, Papel, Tijera, Lagarto, Spock", inspirado en la brillante mente de Sheldon Cooper de "The Big Bang Theory".
 
 🚀 ¿Por qué jugar?
