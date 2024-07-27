@@ -6,6 +6,7 @@ Más Diversión: Con 5 opciones en lugar de 3, las combinaciones y estrategias s
 Personajes de la Serie: Elige entre tus personajes favoritos de "The Big Bang Theory", cada uno con diferentes niveles de inteligencia y vidas iniciales.
 Fácil de Aprender: Las reglas son simples, pero el juego ofrece una profundidad estratégica que mantendrá a todos entretenidos.
 Geek y Divertido: Añade un toque geek a tus juegos con amigos y demuestra quién es el verdadero fan de "The Big Bang Theory".
+
 🌟 Reglas del Juego:
 Piedra aplasta Tijera y Lagarto.
 Tijera corta Papel y decapita Lagarto.
