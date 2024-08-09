@@ -46,6 +46,7 @@ let victoriasEnemigo = 0
 let vidasJugador = 3
 let vidasEnemigo = 3
 let lienzo = mapa.getContext("2d")
+let intervalo 
 
 class Mokepon {
     constructor(nombre, foto, vida) {
@@ -55,10 +56,12 @@ class Mokepon {
         this.ataques = []
         this.x = 20
         this.y = 30
-        this.ancho = 80
-        this.alto = 80
+        this.ancho = 50
+        this.alto = 90
         this.mapaFoto = new Image ()
         this.mapaFoto.src = foto
+        this.velocidadX = 0
+        this.velocidadY = 0
     }
 }
 /**
@@ -156,8 +159,11 @@ function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
     //sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'flex'
+    intervalo = setInterval(pintarPersonaje, 50)
+    window.addEventListener('keydown', SePresionoUnaTecla)
+    window.addEventListener('keyup', detenerMovimiento)
     lienzo.drawImage(
-        imagenDeSheldon,
+        sheldon.mapaFoto,
         20,
         40,
         100,
@@ -328,6 +334,9 @@ function aleatorio(min, max) {
 }
 
 function pintarPersonaje (){
+    sheldon.x = sheldon.x + sheldon.velocidadX
+    sheldon.y = sheldon.y + sheldon.velocidadY
+
     lienzo.clearRect(0, 0, mapa.width, mapa.height)
     lienzo.drawImage(
         sheldon.mapaFoto,
@@ -338,8 +347,49 @@ function pintarPersonaje (){
     )
 }
 
-function moverSheldon() {
-    sheldon.x = sheldon.x +5
-    pintarPersonaje()
+function moverDerecha() {
+    sheldon.velocidadX=5
 }
+
+function moverIzquierda() {
+    sheldon.velocidadX=-5
+}
+
+function moverArriba() {
+    sheldon.velocidadY=-5
+}
+
+function moverAbajo() {
+    sheldon.velocidadY=5
+}
+
+function detenerMovimiento() {
+    sheldon.velocidadX=0
+    sheldon.velocidadY=0
+}
+
+function SePresionoUnaTecla(event){
+    switch (event.key) {
+        case 'w':
+        case 'W':
+            moverArriba();
+            break;
+        case 's':
+        case 'S':
+            moverAbajo();
+            break;
+        case 'd':
+        case 'D':
+            moverDerecha();
+            break;
+        case 'a':
+        case 'A':
+            moverIzquierda();
+            break;
+        default:
+            break;
+    }    
+}
+
+
 window.addEventListener('load', iniciarJuego)

@@ -19,7 +19,10 @@
         <section id = "ver-mapa">
             <h1 class="titulo">Tu mapa aqui</h1> 
             <canvas id = "mapa"></canvas>
-            <button onclick="moverSheldon()">Mover</button>
+            <button onmouseup = "detenerMovimiento()" onmousedown="moverArriba()">Arriba</button>
+            <button onmouseup = "detenerMovimiento()" onmousedown="moverIzquierda()">Izquierda</button>
+            <button onmouseup = "detenerMovimiento()" onmousedown="moverAbajo()">Abajo</button>
+            <button onmouseup = "detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button>
         </section>
 
         <section id="seleccionar-ataque">
