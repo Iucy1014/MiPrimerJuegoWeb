@@ -31,6 +31,7 @@ let inputBernadette
 let inputPenny
 let inputAmy
 let mascotaJugador
+let mascotaJugadorObjeto
 let ataquesMokepon
 let ataquesMokeponEnemigo
 let botonPiedra
@@ -47,6 +48,8 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 let lienzo = mapa.getContext("2d")
 let intervalo 
+let mapaBackground = new Image()
+mapaBackground.src = './imagenes/mapa.jpg'
 
 class Mokepon {
     constructor(nombre, foto, vida) {
@@ -157,18 +160,6 @@ function iniciarJuego() {
 }
 function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
-    //sectionSeleccionarAtaque.style.display = 'flex'
-    sectionVerMapa.style.display = 'flex'
-    intervalo = setInterval(pintarPersonaje, 50)
-    window.addEventListener('keydown', SePresionoUnaTecla)
-    window.addEventListener('keyup', detenerMovimiento)
-    lienzo.drawImage(
-        sheldon.mapaFoto,
-        20,
-        40,
-        100,
-        100,
-    )
 
     if (inputSheldon.checked) {
         spanMascotaJugador.innerHTML = inputSheldon.id
@@ -196,6 +187,8 @@ function seleccionarMascotaJugador() {
     }
 
     extraerAtaques(mascotaJugador)
+    sectionVerMapa.style.display = 'flex'
+    iniciarMapa()
     seleccionarMascotaEnemigo()
 }
 
@@ -333,57 +326,60 @@ function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function pintarPersonaje (){
-    sheldon.x = sheldon.x + sheldon.velocidadX
-    sheldon.y = sheldon.y + sheldon.velocidadY
+function pintarCanvas (){
+    mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
+    mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY
 
     lienzo.clearRect(0, 0, mapa.width, mapa.height)
     lienzo.drawImage(
-        sheldon.mapaFoto,
-        sheldon.x,
-        sheldon.y,
-        sheldon.ancho,
-        sheldon.alto
+        mapaBackground,
+        0,
+        0,
+        mapa.width,
+        mapa.height,
+    )
+    lienzo.drawImage(
+        mascotaJugadorObjeto.mapaFoto,
+        mascotaJugadorObjeto.x,
+        mascotaJugadorObjeto.y,
+        mascotaJugadorObjeto.ancho,
+        mascotaJugadorObjeto.alto
     )
 }
 
 function moverDerecha() {
-    sheldon.velocidadX=5
+    mascotaJugadorObjeto.velocidadX=5
 }
 
 function moverIzquierda() {
-    sheldon.velocidadX=-5
+    mascotaJugadorObjeto.velocidadX=-5
 }
 
 function moverArriba() {
-    sheldon.velocidadY=-5
+    mascotaJugadorObjeto.velocidadY=-5
 }
 
 function moverAbajo() {
-    sheldon.velocidadY=5
+    mascotaJugadorObjeto.velocidadY=5
 }
 
 function detenerMovimiento() {
-    sheldon.velocidadX=0
-    sheldon.velocidadY=0
+    mascotaJugadorObjeto.velocidadX=0
+    mascotaJugadorObjeto.velocidadY=0
 }
 
 function SePresionoUnaTecla(event){
     switch (event.key) {
-        case 'w':
-        case 'W':
+        case 'w'||'W':
             moverArriba();
             break;
-        case 's':
-        case 'S':
+        case 's'|| 'S':
             moverAbajo();
             break;
-        case 'd':
-        case 'D':
+        case 'd'||'D':
             moverDerecha();
             break;
-        case 'a':
-        case 'A':
+        case 'a' || 'A':
             moverIzquierda();
             break;
         default:
@@ -391,5 +387,22 @@ function SePresionoUnaTecla(event){
     }    
 }
 
+function iniciarMapa(){
+    mapa.width = 800
+    mapa.height = 600
+    mascotaJugadorObjeto = obtenerObejtoMascota (mascotaJugador)
+    intervalo = setInterval(pintarCanvas, 50)
+    window.addEventListener('keydown', SePresionoUnaTecla)
+    window.addEventListener('keyup', detenerMovimiento)
+}
+
+function obtenerObejtoMascota(){
+    for (let i = 0; i < mokepones.length; i++) {
+        if (mascotaJugador === mokepones[i].nombre) {
+            return mokepones[i]
+        }
+        
+    }
+}
 
 window.addEventListener('load', iniciarJuego)
