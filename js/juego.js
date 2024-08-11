@@ -52,34 +52,58 @@ let mapaBackground = new Image()
 mapaBackground.src = './imagenes/mapa.jpg'
 
 class Mokepon {
-    constructor(nombre, foto, vida) {
+    constructor(nombre, foto, vida, fotoMapa, x = 10, y = 10) {
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
         this.ataques = []
-        this.x = 20
-        this.y = 30
-        this.ancho = 50
-        this.alto = 90
+        this.x = x
+        this.y = y
+        this.ancho = 97
+        this.alto = 100
         this.mapaFoto = new Image ()
-        this.mapaFoto.src = foto
-        this.velocidadX = 0
+        this.mapaFoto.src = fotoMapa
+        this.velocidadX = 0 
         this.velocidadY = 0
+    }
+    pintarMokepon () { 
+        lienzo.drawImage(
+            this.mapaFoto,
+            this.x,
+            this.y,
+            this.ancho,
+            this.alto
+        )
     }
 }
 /**
  * Chicos Fotos
  */
-let sheldon = new Mokepon('Sheldon', './imagenes/sheldon.png', 5);
-let leonard = new Mokepon('Leonard', './imagenes/leonard.png', 5);
-let howard = new Mokepon('Howard', './imagenes/howard.png', 5);
-let rajesh = new Mokepon('Rajesh', './imagenes/rajesh.png', 5);
+let sheldon = new Mokepon('Sheldon', './imagenes/sheldon.png', 5, './imagenes/sheldonCara.png');
+let leonard = new Mokepon('Leonard', './imagenes/leonard.png', 5, './imagenes/leonardCara.png');
+let howard = new Mokepon('Howard', './imagenes/howard.png', 5, './imagenes/howardCara.png');
+let rajesh = new Mokepon('Rajesh', './imagenes/rajesh.png', 5, './imagenes/rajeshCara.png');
 /**
  * Chicas Fotos
  */
-let bernadette = new Mokepon('Bernadette', './imagenes/bernadette.png', 5);
-let penny = new Mokepon('Penny', './imagenes/penny.png', 5);
-let amy = new Mokepon('Amy', './imagenes/amy.png', 5);
+let bernadette = new Mokepon('Bernadette', './imagenes/bernadette.png', 5, './imagenes/bernadetteCara.png');
+let penny = new Mokepon('Penny', './imagenes/penny.png', 5, './imagenes/pennyCara.png');
+let amy = new Mokepon('Amy', './imagenes/amy.png', 5, './imagenes/amyCara.png');
+
+/**
+ * Chicos Fotos
+ */
+let sheldonEnemigo = new Mokepon('Sheldon', './imagenes/sheldon.png', 5, './imagenes/sheldonCara.png', 550, 330);
+let leonardEnemigo = new Mokepon('Leonard', './imagenes/leonard.png', 5, './imagenes/leonardCara.png', 150, 390);
+let howardEnemigo = new Mokepon('Howard', './imagenes/howard.png', 5, './imagenes/howardCara.png', 320, 370);
+let rajeshEnemigo = new Mokepon('Rajesh', './imagenes/rajesh.png', 5, './imagenes/rajeshCara.png', 145, 550);
+/**
+ * Chicas Fotos
+ */
+let bernadetteEnemigo = new Mokepon('Bernadette', './imagenes/bernadette.png', 5, './imagenes/bernadetteCara.png', 850, 360);
+let pennyEnemigo = new Mokepon('Penny', './imagenes/penny.png', 5, './imagenes/pennyCara.png', 1050, 420);
+let amyEnemigo = new Mokepon('Amy', './imagenes/amy.png', 5, './imagenes/amyCara.png', 435, 350);
+
 
 sheldon.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
@@ -338,13 +362,14 @@ function pintarCanvas (){
         mapa.width,
         mapa.height,
     )
-    lienzo.drawImage(
-        mascotaJugadorObjeto.mapaFoto,
-        mascotaJugadorObjeto.x,
-        mascotaJugadorObjeto.y,
-        mascotaJugadorObjeto.ancho,
-        mascotaJugadorObjeto.alto
-    )
+    mascotaJugadorObjeto.pintarMokepon()
+    sheldonEnemigo.pintarMokepon()
+    howardEnemigo.pintarMokepon()
+    leonardEnemigo.pintarMokepon()
+    rajeshEnemigo.pintarMokepon()
+    pennyEnemigo.pintarMokepon()
+    bernadetteEnemigo.pintarMokepon()
+    amyEnemigo.pintarMokepon()
 }
 
 function moverDerecha() {
@@ -388,8 +413,8 @@ function SePresionoUnaTecla(event){
 }
 
 function iniciarMapa(){
-    mapa.width = 800
-    mapa.height = 600
+    mapa.width = 1300
+    mapa.height = 800
     mascotaJugadorObjeto = obtenerObejtoMascota (mascotaJugador)
     intervalo = setInterval(pintarCanvas, 50)
     window.addEventListener('keydown', SePresionoUnaTecla)
