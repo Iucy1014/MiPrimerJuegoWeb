@@ -51,9 +51,14 @@ let intervalo
 let mapaBackground = new Image()
 mapaBackground.src = './imagenes/mapa.jpg'
 let alturaQueBuscamos
-let anchoDelMapa = window.innerWidth - 20
+let anchoDelMapa = window.innerWidth - 40
+const anchoMaximoDelMapa = 1300
 
-alturaQueBuscamos = anchoDelMapa * 700 / 1200 
+if (anchoDelMapa > anchoMaximoDelMapa){
+    anchoDelMapa = anchoMaximoDelMapa - 40
+}
+
+alturaQueBuscamos = anchoDelMapa * 800 / 1300 
 mapa.width = anchoDelMapa
 mapa.height = alturaQueBuscamos
 
@@ -63,10 +68,10 @@ class Mokepon {
         this.foto = foto
         this.vida = vida
         this.ataques = []
+        this.ancho = 95
+        this.alto = 100
         this.x = x
         this.y = y
-        this.ancho = 97
-        this.alto = 100
         this.mapaFoto = new Image ()
         this.mapaFoto.src = fotoMapa
         this.velocidadX = 0 
@@ -434,19 +439,19 @@ function pintarCanvas (){
 }
 
 function moverDerecha() {
-    mascotaJugadorObjeto.velocidadX=5
+    mascotaJugadorObjeto.velocidadX=10
 }
 
 function moverIzquierda() {
-    mascotaJugadorObjeto.velocidadX=-5
+    mascotaJugadorObjeto.velocidadX=-10
 }
 
 function moverArriba() {
-    mascotaJugadorObjeto.velocidadY=-5
+    mascotaJugadorObjeto.velocidadY=-10
 }
 
 function moverAbajo() {
-    mascotaJugadorObjeto.velocidadY=5
+    mascotaJugadorObjeto.velocidadY=10
 }
 
 function detenerMovimiento() {
@@ -513,7 +518,6 @@ function revisarColision(enemigo){
     sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'none'
     seleccionarMascotaEnemigo(enemigo)
-    //alert("Hay colision con " + enemigo.nombre)
 }
 
 window.addEventListener('load', iniciarJuego)

@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>The Big Bang Theory</title>
         <link rel="stylesheet" href="./styles.css"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <section id="seleccionar-mascota">
@@ -17,12 +18,15 @@
         </section>
 
         <section id = "ver-mapa">
-            <h1 class="titulo">La sala de Sheldon</h1> 
+            <h2 class="subtitulo">La sala de Sheldon</h2> 
             <canvas id = "mapa"></canvas>
-            <button onmouseup = "detenerMovimiento()" onmousedown="moverArriba()">Arriba</button>
-            <button onmouseup = "detenerMovimiento()" onmousedown="moverIzquierda()">Izquierda</button>
-            <button onmouseup = "detenerMovimiento()" onmousedown="moverAbajo()">Abajo</button>
-            <button onmouseup = "detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button>
+
+            <button onmouseup = "detenerMovimiento()" onmousedown="moverArriba()">⬆</button>
+            <div>
+                <button onmouseup = "detenerMovimiento()" onmousedown="moverIzquierda()">⬅</button>
+                <button onmouseup = "detenerMovimiento()" onmousedown="moverAbajo()">⬇</button>
+                <button onmouseup = "detenerMovimiento()" onmousedown="moverDerecha()">➡</button>
+            </div>
         </section>
 
         <section id="seleccionar-ataque">

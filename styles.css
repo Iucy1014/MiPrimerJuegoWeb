@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(95, 13, 13);
-  font-weight: bold;
 }
 
 #seleccionar-mascota {
@@ -37,6 +35,7 @@ body {
   justify-content: center;
   align-items: center;
   color: rgb(95, 13, 13);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadido */
 }
 
 .tarjeta-de-mokepon img {
@@ -51,7 +50,9 @@ body {
   border: 2px solid white;
   color: white;
   margin-top: 30px;
+  cursor: pointer; /* Añadido */
 }
+
 input {
   display: none;
 }
@@ -75,11 +76,15 @@ input {
   display: flex;
   font-family: 'Montserrat', sans-serif;
   font-size: 120%;
-  font-weight:600;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadido */
+  cursor: pointer; /* Añadido */
 }
-.boton-de-ataque img{
+
+.boton-de-ataque img {
   width: 90px;
 }
+
 #mensajes {
   width: 280px;
   background: rgb(219, 218, 218);
@@ -102,6 +107,7 @@ input {
   align-items: center;
   flex-direction: column;
   color: rgb(95, 13, 13);
+  cursor: pointer; /* Añadido */
 }
 
 .ataques {
@@ -131,8 +137,29 @@ input {
   border: 2px solid white;
 }
 
-@media (max-width: 360px) {
+#ver-mapa button {
+  width: 80px;
+  height: 80px;
+  border-radius: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer; /* Añadido */
+}
+
+@media (max-width: 900px) {
   .tarjetas, .tarjetas-ataques {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 300px) {
+  #ver-mapa div { /* Corregido el ID */
+    display: flex;
+    align-items: center;
     flex-direction: column;
   }
 }
