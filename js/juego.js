@@ -50,6 +50,12 @@ let lienzo = mapa.getContext("2d")
 let intervalo 
 let mapaBackground = new Image()
 mapaBackground.src = './imagenes/mapa.jpg'
+let alturaQueBuscamos
+let anchoDelMapa = window.innerWidth - 20
+
+alturaQueBuscamos = anchoDelMapa * 700 / 1200 
+mapa.width = anchoDelMapa
+mapa.height = alturaQueBuscamos
 
 class Mokepon {
     constructor(nombre, foto, vida, fotoMapa, x = 10, y = 10) {
@@ -469,8 +475,6 @@ function SePresionoUnaTecla(event) {
 
 
 function iniciarMapa(){
-    mapa.width = 1300
-    mapa.height = 800
     mascotaJugadorObjeto = obtenerObejtoMascota (mascotaJugador)
     intervalo = setInterval(pintarCanvas, 50)
     window.addEventListener('keydown', SePresionoUnaTecla)
