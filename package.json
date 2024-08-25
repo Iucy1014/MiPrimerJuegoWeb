@@ -1,0 +1,22 @@
+{
+  "name": "juegoff",
+  "version": "1.0.0",
+  "description": "¿Cansado de los mismos viejos juegos? ¡Es hora de elevar tu diversión con una emocionante y geek versión del clásico juego de \"Piedra, Papel, Tijera\"! Presentamos \"Piedra, Papel, Tijera, Lagarto, Spock\", inspirado en la brillante mente de Sheldon Cooper de \"The Big Bang Theory\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iucy1014/MiPrimerJuegoWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iucy1014/MiPrimerJuegoWeb/issues"
+  },
+  "homepage": "https://github.com/Iucy1014/MiPrimerJuegoWeb#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
