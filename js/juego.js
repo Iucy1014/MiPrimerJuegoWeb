@@ -104,7 +104,6 @@ let bernadetteEnemigo = new Mokepon('Bernadette', './imagenes/bernadette.png', 5
 let pennyEnemigo = new Mokepon('Penny', './imagenes/penny.png', 5, './imagenes/pennyCara.png', 1050, 420);
 let amyEnemigo = new Mokepon('Amy', './imagenes/amy.png', 5, './imagenes/amyCara.png', 435, 350);
 
-
 sheldon.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
@@ -112,6 +111,14 @@ sheldon.ataques.push(
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
     { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
 );
+sheldonEnemigo.ataques.push(
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+);
+
 leonard.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
@@ -119,6 +126,14 @@ leonard.ataques.push(
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
     { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
 );
+leonardEnemigo.ataques.push(
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+);
+
 howard.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
@@ -126,6 +141,14 @@ howard.ataques.push(
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
     { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
 );
+howardEnemigo.ataques.push(
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+);
+
 rajesh.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
@@ -133,6 +156,14 @@ rajesh.ataques.push(
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
     { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
 );
+rajeshEnemigo.ataques.push(
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+);
+
 bernadette.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
@@ -140,6 +171,14 @@ bernadette.ataques.push(
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
     { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
 );
+bernadetteEnemigo.ataques.push(
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+);
+
 penny.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
@@ -147,7 +186,22 @@ penny.ataques.push(
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
     { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
 );
+pennyEnemigo.ataques.push(
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+);
+
 amy.ataques.push(
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+);
+amyEnemigo.ataques.push(
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
     { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
@@ -213,7 +267,6 @@ function seleccionarMascotaJugador() {
     extraerAtaques(mascotaJugador)
     sectionVerMapa.style.display = 'flex'
     iniciarMapa()
-    seleccionarMascotaEnemigo()
 }
 
 function extraerAtaques(mascotaJugador) {
@@ -222,7 +275,6 @@ function extraerAtaques(mascotaJugador) {
         if (mascotaJugador === mokepones[i].nombre) {
             ataques = mokepones[i].ataques
         }
-        
     }
     mostrarAtaques(ataques)
 }
@@ -257,13 +309,11 @@ function secuenciaAtaque() {
     })
 }
 
-function seleccionarMascotaEnemigo() {
-    let mascotaAleatoria = aleatorio(0, mokepones.length -1)
-
-    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
-    ataquesMokeponEnemigo = mokepones[mascotaAleatoria].ataques
+function seleccionarMascotaEnemigo(enemigo) {
+    spanMascotaEnemigo.innerHTML = enemigo.nombre;
+    ataquesMokeponEnemigo = enemigo.ataques;
     
-    secuenciaAtaque()
+    secuenciaAtaque();
 }
 
 function ataqueAleatorioEnemigo() {
@@ -287,16 +337,11 @@ function indexAmbosOponente(jugador, enemigo) {
 function combate() {
     for (let index = 0; index < 5; index++) {
         if (
-            (ataqueJugador[index] === 'Piedra' && ataqueEnemigo[index] === 'Lagarto') ||
-            (ataqueJugador[index] === 'Piedra' && ataqueEnemigo[index] === 'Tijeras') ||
-            (ataqueJugador[index] === 'Papel' && ataqueEnemigo[index] === 'Piedra') ||
-            (ataqueJugador[index] === 'Papel' && ataqueEnemigo[index] === 'Spock') ||
-            (ataqueJugador[index] === 'Tijeras' && ataqueEnemigo[index] === 'Lagarto') ||
-            (ataqueJugador[index] === 'Tijeras' && ataqueEnemigo[index] === 'Papel') ||
-            (ataqueJugador[index] === 'Lagarto' && ataqueEnemigo[index] === 'Papel') ||
-            (ataqueJugador[index] === 'Lagarto' && ataqueEnemigo[index] === 'Spock') ||
-            (ataqueJugador[index] === 'Spock' && ataqueEnemigo[index] === 'Piedra') ||
-            (ataqueJugador[index] === 'Spock' && ataqueEnemigo[index] === 'Tijeras')
+            (ataqueJugador[index] === 'Piedra' && (ataqueEnemigo[index] === 'Lagarto' || ataqueEnemigo[index] === 'Tijeras')) ||
+            (ataqueJugador[index] === 'Papel' && (ataqueEnemigo[index] === 'Piedra' || ataqueEnemigo[index] === 'Spock')) ||
+            (ataqueJugador[index] === 'Tijeras' && (ataqueEnemigo[index] === 'Lagarto' || ataqueEnemigo[index] === 'Papel')) ||
+            (ataqueJugador[index] === 'Lagarto' && (ataqueEnemigo[index] === 'Papel' || ataqueEnemigo[index] === 'Spock')) ||
+            (ataqueJugador[index] === 'Spock' && (ataqueEnemigo[index] === 'Piedra' || ataqueEnemigo[index] === 'Tijeras'))
         ) {
             indexAmbosOponente(index, index);
             crearMensaje('GANASTE');
@@ -308,12 +353,13 @@ function combate() {
         } else {
             indexAmbosOponente(index, index);
             crearMensaje('PERDISTE');
-            vidasEnemigo++;
+            victoriasEnemigo++;
             spanVidasEnemigo.innerHTML = victoriasEnemigo;
         }
     }
     revisarVidas();
 }
+
 
 function revisarVidas() {
     if (victoriasJugador == victoriasEnemigo) {
@@ -402,24 +448,25 @@ function detenerMovimiento() {
     mascotaJugadorObjeto.velocidadY=0
 }
 
-function SePresionoUnaTecla(event){
-    switch (event.key) {
-        case 'w'||'W':
+function SePresionoUnaTecla(event) {
+    switch (event.key.toLowerCase()) {
+        case 'w':
             moverArriba();
             break;
-        case 's'|| 'S':
+        case 's':
             moverAbajo();
             break;
-        case 'd'||'D':
+        case 'd':
             moverDerecha();
             break;
-        case 'a' || 'A':
+        case 'a':
             moverIzquierda();
             break;
         default:
             break;
     }    
 }
+
 
 function iniciarMapa(){
     mapa.width = 1300
@@ -458,7 +505,11 @@ function revisarColision(enemigo){
         return;
     }
     detenerMovimiento()
-    alert("Hay colision con " + enemigo.nombre)
+    clearInterval(intervalo)
+    sectionSeleccionarAtaque.style.display = 'flex'
+    sectionVerMapa.style.display = 'none'
+    seleccionarMascotaEnemigo(enemigo)
+    //alert("Hay colision con " + enemigo.nombre)
 }
 
 window.addEventListener('load', iniciarJuego)
