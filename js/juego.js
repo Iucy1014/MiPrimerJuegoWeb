@@ -19,6 +19,7 @@ const contenedorAtaques = document.getElementById('contenedorAtaques')
 const sectionVerMapa = document.getElementById('ver-mapa')
 const mapa = document.getElementById('mapa')
 
+let jugadorId = null
 let mokepones = []
 let ataqueJugador =[]
 let ataqueEnemigo = []
@@ -58,20 +59,21 @@ if (anchoDelMapa > anchoMaximoDelMapa){
     anchoDelMapa = anchoMaximoDelMapa - 40
 }
 
-alturaQueBuscamos = anchoDelMapa * 800 / 1300 
+alturaQueBuscamos = anchoDelMapa * 600 / 750 
 mapa.width = anchoDelMapa
 mapa.height = alturaQueBuscamos
 
 class Mokepon {
-    constructor(nombre, foto, vida, fotoMapa, x = 10, y = 10) {
+    constructor(nombre, foto, vida, fotoMapa, id = null) {
+        this.id = id 
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
         this.ataques = []
-        this.ancho = 95
-        this.alto = 100
-        this.x = x
-        this.y = y
+        this.ancho = 46
+        this.alto = 50
+        this.x = aleatorio(0, mapa.width - this.ancho)
+        this.y = aleatorio(0, mapa.height - this.alto)
         this.mapaFoto = new Image ()
         this.mapaFoto.src = fotoMapa
         this.velocidadX = 0 
@@ -101,112 +103,53 @@ let bernadette = new Mokepon('Bernadette', './imagenes/bernadette.png', 3, './im
 let penny = new Mokepon('Penny', './imagenes/penny.png', 3, './imagenes/pennyCara.png');
 let amy = new Mokepon('Amy', './imagenes/amy.png', 5, './imagenes/amyCara.png');
 
-/**
- * Chicos Fotos
- */
-let sheldonEnemigo = new Mokepon('Sheldon', './imagenes/sheldon.png', 5, './imagenes/sheldonCara.png', 550, 330);
-let leonardEnemigo = new Mokepon('Leonard', './imagenes/leonard.png', 5, './imagenes/leonardCara.png', 150, 390);
-let howardEnemigo = new Mokepon('Howard', './imagenes/howard.png', 4, './imagenes/howardCara.png', 320, 370);
-let rajeshEnemigo = new Mokepon('Rajesh', './imagenes/rajesh.png', 4, './imagenes/rajeshCara.png', 145, 550);
-/**
- * Chicas Fotos
- */
-let bernadetteEnemigo = new Mokepon('Bernadette', './imagenes/bernadette.png', 3, './imagenes/bernadetteCara.png', 850, 360);
-let pennyEnemigo = new Mokepon('Penny', './imagenes/penny.png', 3, './imagenes/pennyCara.png', 1050, 420);
-let amyEnemigo = new Mokepon('Amy', './imagenes/amy.png', 5, './imagenes/amyCara.png', 435, 350);
 
-sheldon.ataques.push(
+const SHELDONamyLEONARDataques = [
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
     { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
     { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
-sheldonEnemigo.ataques.push(
+]
+const HOWARDataques = [
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
+]
+const RAJESHataques = [
     { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
     { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
     { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
     { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
-    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
+]
+const PENNYbernadetteATAQUES= [
+    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
+    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
+    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
+]
 
-leonard.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
-    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
-leonardEnemigo.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
-    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
+sheldon.ataques.push(...SHELDONamyLEONARDataques)
+sheldonEnemigo.ataques.push(...SHELDONamyLEONARDataques)
 
-howard.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
-howardEnemigo.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
+leonard.ataques.push(...SHELDONamyLEONARDataques)
+leonardEnemigo.ataques.push(...SHELDONamyLEONARDataques)
 
-rajesh.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
-);
-rajeshEnemigo.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
-);
+howard.ataques.push(...HOWARDataques)
+howardEnemigo.ataques.push(...HOWARDataques)
 
-bernadette.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-);
-bernadetteEnemigo.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-);
+rajesh.ataques.push(...RAJESHataques)
+rajeshEnemigo.ataques.push(...RAJESHataques)
 
-penny.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-);
-pennyEnemigo.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-);
+bernadette.ataques.push(...PENNYbernadetteATAQUES);
+bernadetteEnemigo.ataques.push(...PENNYbernadetteATAQUES);
 
-amy.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
-    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
-amyEnemigo.ataques.push(
-    { nombre: 'Piedra', id: 'boton-piedra', foto: './imagenes/piedra.png' },
-    { nombre: 'Papel', id: 'boton-papel', foto: './imagenes/papel.png' },
-    { nombre: 'Tijeras', id: 'boton-tijeras', foto: './imagenes/tijera.png' },
-    { nombre: 'Lagarto', id: 'boton-lagarto', foto: './imagenes/lagarto.png' },
-    { nombre: 'Spock', id: 'boton-spock', foto: './imagenes/spock.png' }
-);
+penny.ataques.push(...PENNYbernadetteATAQUES);
+pennyEnemigo.ataques.push(...PENNYbernadetteATAQUES);
+
+amy.ataques.push(...SHELDONamyLEONARDataques)
+amyEnemigo.ataques.push(...SHELDONamyLEONARDataques)
+
 mokepones.push(sheldon, leonard, howard, rajesh, bernadette, penny, amy);
 
 function iniciarJuego() {
@@ -234,7 +177,21 @@ function iniciarJuego() {
     
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
     botonReiniciar.addEventListener('click', reiniciarJuego)
+    unirseAlJuego()
 }
+function unirseAlJuego() {
+    fetch("http://localhost:6060/unirse")
+        .then(function (res) {
+            if (res.ok) {
+                res.text()
+                    .then(function (respuesta) {
+                        console.log(respuesta)
+                        jugadorId = respuesta
+                    })
+            }
+        })
+}
+
 function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
 
@@ -263,11 +220,23 @@ function seleccionarMascotaJugador() {
         alert('Selecciona una mascota')
     }
 
+    seleccionarMokepon(mascotaJugador)
     extraerAtaques(mascotaJugador)
     sectionVerMapa.style.display = 'flex'
     iniciarMapa()
 }
 
+function seleccionarMokepon(mascotaJugador) {
+    fetch(`http://localhost:6060/mokepon/${jugadorId}`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mokepon: mascotaJugador
+        })
+    })
+}
 function extraerAtaques(mascotaJugador) {
     let ataques
     for (let i = 0; i < mokepones.length; i++) {
@@ -408,6 +377,8 @@ function pintarCanvas (){
         mapa.height,
     )
     mascotaJugadorObjeto.pintarMokepon()
+    enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
+
     sheldonEnemigo.pintarMokepon()
     howardEnemigo.pintarMokepon()
     leonardEnemigo.pintarMokepon()
@@ -415,6 +386,7 @@ function pintarCanvas (){
     pennyEnemigo.pintarMokepon()
     bernadetteEnemigo.pintarMokepon()
     amyEnemigo.pintarMokepon()
+
     if (mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0){
         revisarColision(sheldonEnemigo)
         revisarColision(leonardEnemigo)
@@ -426,6 +398,49 @@ function pintarCanvas (){
     }
 }
 
+function enviarPosicion(x, y) {
+    fetch(`http://localhost:6060/mokepon/${jugadorId}/posicion`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            x,
+            y
+        })
+    })
+    .then(function (res) {
+        if (res.ok) {
+            res.json()
+                .then(function ({ enemigos }) {
+                    console.log(enemigos)
+                    enemigos.forEach(function (enemigo) {
+                        let mokeponEnemigo = null
+                        const mokeponNombre = enemigo.mokepon.nombre || ""
+                        if (mokeponNombre === "Sheldon"){
+                            mokeponEnemigo = new Mokepon('Sheldon', './imagenes/sheldon.png', 5, './imagenes/sheldonCara.png');
+                        } else if (mokeponNombre === "Leonard"){
+                            mokeponEnemigo = new Mokepon('Leonard', './imagenes/leonard.png', 5, './imagenes/leonardCara.png');
+                        } else if (mokeponNombre === "Howard"){
+                            mokeponEnemigo = new Mokepon('Howard', './imagenes/howard.png', 4, './imagenes/howardCara.png');
+                        } else if (mokeponNombre === "Rajesh"){
+                            mokeponEnemigo = new Mokepon('Rajesh', './imagenes/rajesh.png', 4, './imagenes/rajeshCara.png');
+                        }else if (mokeponNombre === "Bernadette"){
+                            mokeponEnemigo = new Mokepon('Bernadette', './imagenes/bernadette.png', 3, './imagenes/bernadetteCara.png');
+                        }else if (mokeponNombre === "Penny"){
+                            mokeponEnemigo = new Mokepon('Penny', './imagenes/penny.png', 3, './imagenes/pennyCara.png');
+                        }else if (mokeponNombre === "Amy"){
+                            mokeponEnemigo = new Mokepon('Amy', './imagenes/amy.png', 5, './imagenes/amyCara.png');
+                        }
+                        mokeponEnemigo.x = enemigo.x
+                        mokeponEnemigo.y = enemigo.y
+
+                        mokeponEnemigo.pintarMokepon()
+                    })
+                })
+        }
+    })
+}
 function moverDerecha() {
     mascotaJugadorObjeto.velocidadX=10
 }
