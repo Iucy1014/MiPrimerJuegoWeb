@@ -26,17 +26,17 @@ Elige tu personaje favorito de "The Big Bang Theory" y juega con sus caracterís
 
 - Sheldon Cooper: El genio. ¡Empieza con 5 vidas!
 
-- Leonard Hofstadter: Inteligente y cauteloso. ¡Empieza con 4 vidas!
+- Leonard Hofstadter: Inteligente y cauteloso. ¡Empieza con 5 vidas!
 
-- Howard Wolowitz: Ingenioso y astuto. ¡Empieza con 3 vidas!
+- Howard Wolowitz: Ingenioso y astuto. ¡Empieza con 4 vidas!
 
-- Rajesh Koothrappali: Tímido pero brillante. ¡Empieza con 3 vidas!
+- Rajesh Koothrappali: Tímido pero brillante. ¡Empieza con 4 vidas!
 
-- Penny: Con encanto y astucia. ¡Empieza con 2 vidas!
+- Penny: Con encanto y astucia. ¡Empieza con 3 vidas!
 
-- Bernadette Rostenkowski: Pequeña pero poderosa. ¡Empieza con 4 vidas!
+- Bernadette Rostenkowski: Pequeña pero poderosa. ¡Empieza con 3 vidas!
 
-- Amy Farrah Fowler: Científica y lógica. ¡Empieza con 4 vidas!
+- Amy Farrah Fowler: Científica y lógica. ¡Empieza con 5 vidas!
 
 
 ¡No esperes más! Descubre quién es el verdadero maestro de "Piedra, Papel, Tijera, Lagarto, Spock" y lleva tus noches de juegos al siguiente nivel. ¡Que comience la diversión!
